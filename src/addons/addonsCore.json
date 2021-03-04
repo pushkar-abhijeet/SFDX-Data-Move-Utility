@@ -5,7 +5,7 @@
             "path": null,
             "module": "core:OnBefore",
             "method": "onBefore",
-            "excluded": true,
+            "excluded": false,
             "args": null
         },
         {
@@ -13,8 +13,24 @@
             "path": null,
             "module": "core:OnAfter",
             "method": "onAfter",
-            "excluded": true,
+            "excluded": false,
             "args": null
+        },
+
+        {
+            "command": "sfdmu:run",
+            "module": "core:ProcessDeactivator",
+            "method": "onBefore",
+            "args": {
+                "processes" : [
+                    {
+                        "type" : "All",
+                        "processNames" : [],
+                        "relatedObjects": [],
+                        "mode": "All"
+                    }
+                ]
+            }
         }
     ]
 }

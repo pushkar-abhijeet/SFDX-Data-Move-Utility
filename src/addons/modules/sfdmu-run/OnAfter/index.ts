@@ -6,13 +6,20 @@
  */
 
 
+import { CORE_MESSAGES } from "../../../engine/messages/core";
 import SfdmuRunAddonBase from "../../../engine/sfdmu-run/sfdmuRunAddonBase";
 import IPluginExecutionContext from "../../../package/base/IPluginExecutionContext";
 
 export default class CoreOnAfter extends SfdmuRunAddonBase {
 
     async onExecute(context: IPluginExecutionContext, args : any) : Promise<void>  {
-       // TODO: Implement the core OnAfter functionality here
+
+        this.runtime.writeStartMessage(this);
+
+        // TODO: Implement the core OnBefore functionality here   
+        this.systemRuntime.$$writeCoreInfoMessage(this, CORE_MESSAGES.Processing);
+
+        this.runtime.writeFinishMessage(this);  
     }
 
 }

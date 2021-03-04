@@ -27,6 +27,8 @@ import * as path from 'path';
 import * as fs from 'fs';
 import SfdmuContentVersion from "./sfdmuContentVersion";
 import { CORE_MESSAGES } from "../messages/core";
+import IMetadataDescription from "../../package/base/IMetadataDescription";
+import { MetadataApi } from "../../../modules/components/common_components/metadataApi";
 
 
 
@@ -52,6 +54,7 @@ export default class SfdmuRunPluginRuntime extends PluginRuntimeBase implements 
         this.#script = script;
         this.#logger = script.logger;
     }
+    
 
 
     /* -------- System Functions (for direct access) ----------- */
@@ -501,6 +504,19 @@ export default class SfdmuRunPluginRuntime extends PluginRuntimeBase implements 
             removeParentFolder = false;
         let tmp = this.getOrCreateTempPath(module);
         Common.deleteFolderRecursive(tmp, false, removeParentFolder);
+    }
+
+    /**
+     * Lists metadata of given type
+     *
+     * @param {string} type The type of metadata
+     * @param {Array<string>} [objectList] The list of objects to retrieve metadata for them
+     * @returns {IMetadataDescription[]} The array of retrieved metadata
+     * @memberof ISfdmuRunPluginRuntime
+     */
+    listMetadata(type: string, objectList?: string[]): IMetadataDescription[] {
+        let mtp : MetadataApi = new MetadataApi(this.#script.targetOrg);
+        
     }
 
 }

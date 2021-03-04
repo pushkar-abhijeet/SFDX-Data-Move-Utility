@@ -9,6 +9,7 @@
 import { ISfdmuContentVersion, ISfdmuRunPluginJob } from ".";
 import { IAddonModuleBase, IBlobField } from "../../base";
 import { API_ENGINE, OPERATION } from "../../base/enumerations";
+import IMetadataDescription from "../../base/IMetadataDescription";
 import IPluginRuntimeBase from "../../base/IPluginRuntimeBase";
 
 
@@ -177,5 +178,15 @@ export default interface ISfdmuRunPluginRuntime extends IPluginRuntimeBase {
      * @memberof ISfdmuRunPluginRuntime
      */
     readonly targetPath: string;
+
+    /**
+     * Lists metadata of given type
+     *
+     * @param {string} type The type of metadata
+     * @param {Array<string>} [objectList] The list of objects to retrieve metadata for them
+     * @returns {IMetadataDescription[]} The array of retrieved metadata
+     * @memberof ISfdmuRunPluginRuntime
+     */
+    listMetadata(type: string, objectList?: Array<string>): IMetadataDescription[];
 
 }

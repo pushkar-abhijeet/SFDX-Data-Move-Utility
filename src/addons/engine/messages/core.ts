@@ -17,6 +17,7 @@ export enum CORE_MESSAGES {
     TotalDataVolume = 'The total volume of the data to process: %s items of total %sMb.',
     DataWillBeProcessedInChunksOfSize = 'The processed data was splitted into %s chunks with max size of %sMb each chunk.',
     ProcessingChunk = "Processing chunk #%s of %s items.",
+    Processing = "Processing",
 
     // ExportFiles plugin -------------------------
     ExportFiles_TargetIsFileWarning = 'Cannot process Files on CSV sources or targets. Set a salesforce org as the Source and the Target.',
@@ -32,9 +33,10 @@ export enum CORE_MESSAGES {
     ExportFiles_ExportingContentVersions = 'Transferring ContentVersion binary data ...',
     ExportFiles_ExportingContentDocumentLinks = 'Creating target ContentDocumentLink records ...',
     ExportFiles_NothingToProcess = "There is no data to export.",
-    ExportFiles_NothingToUpdate = "The target Files were deleted. There is no data to Update. Define another operation."
+    ExportFiles_NothingToUpdate = "The target Files were deleted. There is no data to Update. Define another operation.",
 
-
+    // ProcessDeactivator plugin -------------------------
+    ProcessDeactivator_TargetIsFileWarning = 'Cannot process csvfile targets. Set a salesforce org as the Target.'
 
 
 }
