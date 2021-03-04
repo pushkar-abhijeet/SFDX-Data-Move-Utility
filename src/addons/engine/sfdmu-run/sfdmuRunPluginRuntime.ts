@@ -28,7 +28,7 @@ import * as fs from 'fs';
 import SfdmuContentVersion from "./sfdmuContentVersion";
 import { CORE_MESSAGES } from "../messages/core";
 import IMetadataDescription from "../../package/base/IMetadataDescription";
-import { MetadataApi } from "../../../modules/components/common_components/metadataApi";
+import { MetadataApi } from "../../../modules/components/api_engines/metadataApi";
 
 
 
@@ -54,7 +54,7 @@ export default class SfdmuRunPluginRuntime extends PluginRuntimeBase implements 
         this.#script = script;
         this.#logger = script.logger;
     }
-    
+
 
 
     /* -------- System Functions (for direct access) ----------- */
@@ -514,9 +514,11 @@ export default class SfdmuRunPluginRuntime extends PluginRuntimeBase implements 
      * @returns {IMetadataDescription[]} The array of retrieved metadata
      * @memberof ISfdmuRunPluginRuntime
      */
-    listMetadata(type: string, objectList?: string[]): IMetadataDescription[] {
-        let mtp : MetadataApi = new MetadataApi(this.#script.targetOrg);
-        
+    async listMetadata(type: string, objectList?: string[]): Promise<IMetadataDescription[]> {
+        let mtp: MetadataApi = new MetadataApi(this.#script.targetOrg);
+        let data = await mtp.listMetadata(type);
+
+        return [];
     }
 
 }

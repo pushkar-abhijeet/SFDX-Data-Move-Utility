@@ -10,3 +10,5 @@ export * from "./helper_interfaces";
 export { default as ApiEngineBase } from "./ApiEngineBase";
 export { default as ApiInfo } from "./ApiInfo";
 export { default as ApiResultRecord } from "./ApiResultRecord";
+export { default as MetadataDefinition } from "./MetadataDefinition";
+export { default as MetadataDefinitionItem } from "./MetadataDefinitionItem";

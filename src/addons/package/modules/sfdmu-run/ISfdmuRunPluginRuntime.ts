@@ -184,9 +184,9 @@ export default interface ISfdmuRunPluginRuntime extends IPluginRuntimeBase {
      *
      * @param {string} type The type of metadata
      * @param {Array<string>} [objectList] The list of objects to retrieve metadata for them
-     * @returns {IMetadataDescription[]} The array of retrieved metadata
+     * @returns {Promise<IMetadataDescription[]>} The array of retrieved metadata
      * @memberof ISfdmuRunPluginRuntime
      */
-    listMetadata(type: string, objectList?: Array<string>): IMetadataDescription[];
+    listMetadata(type: string, objectList?: Array<string>): Promise<IMetadataDescription[]>;
 
 }

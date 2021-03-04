@@ -511,6 +511,22 @@ export class AddonManifest {
     addons: AddonManifestDefinition[] = new Array<AddonManifestDefinition>();
 }
 
+export class GeneralDataResponse {
+
+    constructor(init?: Partial<GeneralDataResponse>) {
+        if (init) {
+            Object.assign(this, init);
+        }
+    }
+
+    errorMessage: string;
+    data: Array<any> = new Array<any>();
+
+    get isError() {
+        return !!this.errorMessage;
+    }
+}
+
 
 
 

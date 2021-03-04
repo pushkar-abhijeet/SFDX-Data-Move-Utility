@@ -51,7 +51,7 @@ export default class ProcessDeactivator extends SfdmuRunAddonBase {
             : [context.objectName];
 
         // TEMP ---:::
-        let flows = this.runtime.listMetadata('Flow', objectList);
+        let flows = await this.runtime.listMetadata('Flow', objectList);
 
 
 
