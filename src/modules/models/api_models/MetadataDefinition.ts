@@ -8,15 +8,17 @@
 
 import { MetadataDefinitionItem } from ".";
 import { GeneralDataResponse } from "..";
+import { IMetadataDefinition } from "../../../addons/package/base";
 
-export default class MetadataDefinition extends GeneralDataResponse {
-    
+
+export default class MetadataDefinition extends GeneralDataResponse implements IMetadataDefinition {
+
     constructor(init?: Partial<MetadataDefinition>) {
         super(init);
         if (init) {
             Object.assign(this, init);
         }
     }
-   
+    type: string;
     data: Array<MetadataDefinitionItem> = new Array<MetadataDefinitionItem>();
 }

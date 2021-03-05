@@ -462,7 +462,7 @@ export class Sfdx implements IFieldMapping {
 
         let self = this;
         const queue = recordIds.map(recordId => () => ___getBlobData(recordId, blobField));
-        const downloadedBlobs: Array<[string, string]> = await Common.parallelTasksAsync(queue, CONSTANTS.MAX_PARALLEL_DOWNLOAD_THREADS);
+        const downloadedBlobs: Array<[string, string]> = await Common.parallelTasksAsync(queue, CONSTANTS.MAX_PARALLEL_THREADS);
         return new Map<string, string>(downloadedBlobs);
 
         // ------------------ internal functions ------------------------- //        

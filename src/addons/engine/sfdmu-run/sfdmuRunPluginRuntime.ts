@@ -27,7 +27,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 import SfdmuContentVersion from "./sfdmuContentVersion";
 import { CORE_MESSAGES } from "../messages/core";
-import IMetadataDescription from "../../package/base/IMetadataDescription";
+import IMetadataDefinition from "../../package/base/IMetadataDefinition";
 import { MetadataApi } from "../../../modules/components/api_engines/metadataApi";
 
 
@@ -511,12 +511,13 @@ export default class SfdmuRunPluginRuntime extends PluginRuntimeBase implements 
      *
      * @param {string} type The type of metadata
      * @param {Array<string>} [objectList] The list of objects to retrieve metadata for them
-     * @returns {IMetadataDescription[]} The array of retrieved metadata
+     * @returns {IMetadataDefinition[]} The array of retrieved metadata
      * @memberof ISfdmuRunPluginRuntime
      */
-    async listMetadata(type: string, objectList?: string[]): Promise<IMetadataDescription[]> {
+    async listMetadata(type: string, objectList?: string[]): Promise<IMetadataDefinition[]> {
         let mtp: MetadataApi = new MetadataApi(this.#script.targetOrg);
         let data = await mtp.listMetadata(type);
+        await mtp.readMetadata(data);
 
         return [];
     }

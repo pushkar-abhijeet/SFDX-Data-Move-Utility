@@ -51,12 +51,12 @@ export default interface IPluginRuntimeBase {
     /** 
      * Execute secveral async functions in parallel mode 
      */
-    parallelExecAsync(fns: Array<(...args: any[]) => Promise<any>>, thisArg?: any, maxParallelTasks?: number): Promise<any[]>;
+    parallelExecAsync(fns: Array<() => Promise<any>>, thisArg?: any, maxParallelTasks?: number): Promise<any[]>;
 
     /**
      * Execute secveral async functions in serial mode 
      */
-    serialExecAsync(fns: Array<(...args: any[]) => Promise<any>>, thisArg?: any): Promise<any[]>;
+    serialExecAsync(fns: Array<() => Promise<any>>, thisArg?: any): Promise<any[]>;
 
     /**
      * Removes folder with all subfolders and files

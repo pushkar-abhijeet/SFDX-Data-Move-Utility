@@ -74,18 +74,18 @@ export default class PluginRuntimeBase implements IPluginRuntimeBase {
      * @param {number} [maxParallelTasks=5] The maximum parallelizm
      * @returns {Promise<any[]>} Array of results of all functions
      */
-    async parallelExecAsync(fns: ((...args: any[]) => Promise<any>)[], thisArg?: any, maxParallelTasks?: number): Promise<any[]> {
+    async parallelExecAsync(fns: (() => Promise<any>)[], thisArg?: any, maxParallelTasks?: number): Promise<any[]> {
         return await Common.parallelExecAsync(fns, thisArg, maxParallelTasks);
     }
 
     /**
      * Execute secveral async functions in serial mode 
      *
-     * @param {Array<(...args: any[]) => Promise<any>>} fns The functions to execute
+     * @param {Array<() => Promise<any>>} fns The functions to execute
      * @param {*} [thisArg] This arg to apply to all functions
      * @returns {Promise<any[]>} Array of results of all functions 
      */
-    async serialExecAsync(fns: ((...args: any[]) => Promise<any>)[], thisArg?: any): Promise<any[]> {
+    async serialExecAsync(fns: (() => Promise<any>)[], thisArg?: any): Promise<any[]> {
         return await Common.serialExecAsync(fns, thisArg);
     }
 
