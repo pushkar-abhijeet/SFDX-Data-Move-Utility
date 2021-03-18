@@ -1,13 +1,13 @@
-import addonModuleBase from "./addonModuleBase";
-import IAddonModuleBase from "./IAddonModuleBase";
-import IApiInfo from "./IApiInfo";
-import IApiResultRecord from "./IApiResultRecord";
-import IBlobField from "./IBlobField";
-import ICommandRunInfo from "./ICommandRunInfo";
-import IPluginExecutionContext from "./IPluginExecutionContext";
-import IPluginInfo from "./IPluginInfo";
-import IPluginRuntimeBase from "./IPluginRuntimeBase";
-import ITableMessage from "./ITableMessage";
+import addonModuleBase from "../base/addonModuleBase";
+import IAddonModuleBase from "../base/IAddonModuleBase";
+import IApiInfo from "../base/IApiInfo";
+import IApiResultRecord from "../base/IApiResultRecord";
+import IBlobField from "../base/IBlobField";
+import ICommandRunInfo from "../base/ICommandRunInfo";
+import IPluginExecutionContext from "../base/IPluginExecutionContext";
+import IPluginInfo from "../base/IPluginInfo";
+import IPluginRuntimeBase from "../base/IPluginRuntimeBase";
+import ITableMessage from "../base/ITableMessage";
 
 export {
   addonModuleBase,
